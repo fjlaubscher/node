@@ -20,4 +20,4 @@ jobs:
           corepack enable
           yarn install --immutable
       - name: Run tests
-        run: yarn vitest run --passWithNoTests
+        run: yarn test
