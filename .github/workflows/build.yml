@@ -14,12 +14,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: yarn
+          cache: pnpm
       - name: Install dependencies
         run: |
           corepack enable
-          yarn install --immutable
+          pnpm install --frozen-lockfile
       - name: Prettier Check
-        run: yarn prettier --check .
+        run: pnpm prettier --check .
       - name: Build
-        run: yarn build
+        run: pnpm build
