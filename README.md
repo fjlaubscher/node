@@ -4,11 +4,11 @@ This repository serves as a starter template for building Node.js applications u
 
 ## Available Scripts
 
-- `yarn build` – Compiles TypeScript files into JavaScript and outputs them to the `dist` folder.
-- `yarn dev` – Starts the application in watch mode using `tsx` for live reloading.
-- `yarn start` – Runs the compiled JavaScript output from the `dist` folder.
-- `yarn test` – Executes tests using Vitest.
-- `yarn format` – Formats code files using Prettier.
+- `pnpm build` – Compiles TypeScript files into JavaScript and outputs them to the `dist` folder.
+- `pnpm dev` – Starts the application in watch mode using `tsx` for live reloading.
+- `pnpm start` – Runs the compiled JavaScript output from the `dist` folder.
+- `pnpm test` – Executes tests using Vitest.
+- `pnpm format` – Formats code files using Prettier.
 
 ## Requirements
 
@@ -31,24 +31,24 @@ This template includes:
 1. Install dependencies:
 
    ```bash
-   yarn install
+   pnpm install
    ```
 
 2. Start development:
 
    ```bash
-   yarn dev
+   pnpm dev
    ```
 
 3. Build the project:
 
    ```bash
-   yarn build
+   pnpm build
    ```
 
 4. Run tests:
    ```bash
-   yarn test
+   pnpm test
    ```
 
 ## Project Structure
