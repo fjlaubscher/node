@@ -23,4 +23,4 @@ jobs:
           corepack enable
           pnpm install --frozen-lockfile
       - name: Prettier Check
-        run: pnpm prettier --check .
+        run: pnpm prettier:check

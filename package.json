@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node index.ts",
     "test": "vitest run",
-    "format": "prettier --write ."
+    "prettier:check": "prettier --check \"src/**/*\" \"src/*\"",
+    "prettier:format": "prettier --write \"src/**/*\" \"src/*\""
   },
   "keywords": [],
   "author": {

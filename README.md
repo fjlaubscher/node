@@ -6,7 +6,8 @@ This repository serves as a starter template for building Node.js applications u
 
 - `pnpm start` – Runs the application directly using Node.js 22's native TypeScript support.
 - `pnpm test` – Executes tests using Vitest.
-- `pnpm format` – Formats code files using Prettier.
+- `pnpm prettier:check` - Checks formatting using Prettier.
+- `pnpm prettier:format` – Formats code files using Prettier.
 
 ## Requirements
 

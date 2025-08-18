@@ -6,7 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - `pnpm start` - Run the application directly using Node.js 22's native TypeScript execution
 - `pnpm test` - Run tests using Vitest
-- `pnpm format` - Format code using Prettier
+- `pnpm prettier:check` - Check for formatting errors using Prettier
+- `pnpm prettier:format` - Format code using Prettier
 
 ## Architecture
 
