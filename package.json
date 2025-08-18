@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "NodeJS + Typescript boilerplate",
   "type": "module",
-  "main": "index.mjs",
+  "main": "index.ts",
   "scripts": {
-    "build": "tsc",
-    "start": "node index.mjs",
+    "start": "node index.ts",
     "test": "vitest run",
     "format": "prettier --write ."
   },
