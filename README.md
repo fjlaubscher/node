@@ -1,19 +1,17 @@
 # Node TypeScript Template
 
-This repository serves as a starter template for building Node.js applications using TypeScript. It includes essential configurations and tools to streamline development and testing.
+This repository serves as a starter template for building Node.js applications using TypeScript with Node.js 22's native TypeScript execution. It includes essential configurations and tools to streamline development and testing.
 
 ## Available Scripts
 
-- `pnpm build` – Compiles TypeScript files into JavaScript and outputs them to the `dist` folder.
-- `pnpm dev` – Starts the application in watch mode using `tsx` for live reloading.
-- `pnpm start` – Runs the compiled JavaScript output from the `dist` folder.
+- `pnpm start` – Runs the application directly using Node.js 22's native TypeScript support.
 - `pnpm test` – Executes tests using Vitest.
 - `pnpm format` – Formats code files using Prettier.
 
 ## Requirements
 
-- Node.js 22 or later
-- TypeScript
+- Node.js 22 or later (for native TypeScript execution)
+- pnpm package manager
 
 The entry point for the application is `src/index.ts`. All TypeScript source files should reside in the `src` directory.
 
@@ -21,10 +19,11 @@ The entry point for the application is `src/index.ts`. All TypeScript source fil
 
 This template includes:
 
-- **TypeScript**: For type-safe development.
+- **TypeScript**: For type-safe development with Node.js 22's native execution support.
 - **Vitest**: A fast and lightweight testing framework.
 - **Dotenv**: For managing environment variables via `.env` files.
 - **Prettier**: For consistent code formatting.
+- **Path Aliases**: Custom TypeScript path aliases (`@/*`) supported at runtime.
 
 ## Getting Started
 
@@ -34,44 +33,39 @@ This template includes:
    pnpm install
    ```
 
-2. Start development:
+2. Start the application:
 
    ```bash
-   pnpm dev
+   pnpm start
    ```
 
-3. Build the project:
-
-   ```bash
-   pnpm build
-   ```
-
-4. Run tests:
+3. Run tests:
    ```bash
    pnpm test
    ```
 
 ## Project Structure
 
-| File/Folder           | Description                                                               |
-| --------------------- | ------------------------------------------------------------------------- |
-| `index.mjs`           | Entry point for the Node.js runtime, sets up the TypeScript paths loader. |
-| `LICENSE`             | License file for the project.                                             |
-| `package.json`        | Contains project metadata and dependencies.                               |
-| `README.md`           | Project documentation.                                                    |
-| `ts-paths-loader.mjs` | Loader for resolving TypeScript path aliases at runtime.                  |
-| `tsconfig.json`       | TypeScript configuration file, including path alias definitions.          |
-| `vitest.config.ts`    | Configuration for Vitest testing framework.                               |
-| `vitest.setup.ts`     | Setup file for Vitest tests.                                              |
-| `src/*`               | All TypeScript source code goes here.                                     |
+| File/Folder         | Description                                                            |
+| ------------------- | ---------------------------------------------------------------------- |
+| `index.ts`          | Entry point that leverages Node.js 22's native TypeScript execution.  |
+| `index.mjs`         | Module loader setup for TypeScript path resolution.                   |
+| `LICENSE`           | License file for the project.                                         |
+| `package.json`      | Contains project metadata and dependencies.                           |
+| `README.md`         | Project documentation.                                                |
+| `ts-paths-loader.ts`| TypeScript loader for resolving path aliases at runtime.             |
+| `tsconfig.json`     | TypeScript configuration file, including path alias definitions.      |
+| `vitest.config.ts`  | Configuration for Vitest testing framework.                           |
+| `vitest.setup.ts`   | Setup file for Vitest tests.                                          |
+| `src/`              | All TypeScript source code goes here.                                 |
 
-## Loader Functionality
+## TypeScript Path Resolution
 
-The `ts-paths-loader.mjs` file is a critical component of this template. It ensures that TypeScript path aliases defined in `tsconfig.json` are resolved correctly at runtime. Without this loader, Node.js would not recognize these aliases, leading to module resolution errors.
+This template uses a custom TypeScript path loader (`ts-paths-loader.ts`) to support TypeScript path aliases at runtime. The loader ensures that aliases defined in `tsconfig.json` (like `@/*`) are resolved correctly when running TypeScript directly with Node.js 22.
 
-### Why is it Necessary?
+### How it Works
 
-TypeScript allows developers to define custom path aliases in `tsconfig.json` to simplify imports and improve code organization. However, these aliases are not natively supported by Node.js. The loader bridges this gap by dynamically mapping the aliases to their corresponding file paths during runtime, ensuring seamless compatibility between TypeScript and Node.js.
+Node.js 22's native TypeScript execution combined with the custom loader allows for seamless use of TypeScript path aliases without requiring a separate build step. This provides a more streamlined development experience while maintaining the benefits of organized imports.
 
 ## Contributing
 
