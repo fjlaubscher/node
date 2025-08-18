@@ -6,16 +6,16 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const tsconfigPath = path.resolve(__dirname, 'tsconfig.json');
 const tsconfig = JSON.parse(readFileSync(tsconfigPath, 'utf8'));
 const paths = tsconfig.compilerOptions?.paths || {};
-const aliasMap = [];
+const aliasMap: { aliasPrefix: string; targetPrefix: string }[] = [];
 for (const [aliasPattern, targets] of Object.entries(paths)) {
-  if (aliasPattern.endsWith('/*') && targets[0].endsWith('/*')) {
+  if (aliasPattern.endsWith('/*') && Array.isArray(targets) && targets[0]?.endsWith('/*')) {
     const aliasPrefix = aliasPattern.slice(0, -2);
     const targetPrefix = targets[0].slice(0, -2);
     aliasMap.push({ aliasPrefix, targetPrefix });
   }
 }
 
-export async function resolve(specifier, context, nextResolve) {
+export async function resolve(specifier: string, context: any, nextResolve: any) {
   for (const { aliasPrefix, targetPrefix } of aliasMap) {
     if (specifier.startsWith(aliasPrefix + '/')) {
       const subPath = specifier.slice(aliasPrefix.length).replace(/^\/+/, '');
