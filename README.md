@@ -4,10 +4,10 @@ This repository serves as a starter template for building Node.js applications u
 
 ## Available Scripts
 
-- `pnpm start` – Runs the application directly using Node.js 22's native TypeScript support.
-- `pnpm test` – Executes tests using Vitest.
-- `pnpm prettier:check` - Checks formatting using Prettier.
-- `pnpm prettier:format` – Formats code files using Prettier.
+- `pnpm lint` - Runs Prettier in check mode alongside the TypeScript compiler for type safety.
+- `pnpm format` - Formats code using Prettier.
+- `pnpm typecheck` - Executes the TypeScript compiler without emitting output.
+- `pnpm test` - Executes tests using Vitest.
 
 ## Requirements
 
@@ -34,29 +34,30 @@ This template includes:
    pnpm install
    ```
 
-2. Start the application:
+2. Run the example entrypoint:
 
    ```bash
-   pnpm start
+   node index.ts
    ```
 
 3. Run tests:
+
    ```bash
    pnpm test
    ```
 
 ## Project Structure
 
-| File/Folder         | Description                                                            |
-| ------------------- | ---------------------------------------------------------------------- |
-| `index.ts`          | Entry point that leverages Node.js 22's native TypeScript execution.  |
-| `LICENSE`           | License file for the project.                                         |
-| `package.json`      | Contains project metadata and dependencies.                           |
-| `README.md`         | Project documentation.                                                |
-| `tsconfig.json`     | TypeScript configuration tuned for modern Node.js ESM projects.       |
-| `vitest.config.ts`  | Configuration for Vitest testing framework.                           |
-| `vitest.setup.ts`   | Setup file for Vitest tests.                                          |
-| `src/`              | All TypeScript source code goes here.                                 |
+| File/Folder        | Description                                                          |
+| ------------------ | -------------------------------------------------------------------- |
+| `index.ts`         | Entry point that leverages Node.js 22's native TypeScript execution. |
+| `LICENSE`          | License file for the project.                                        |
+| `package.json`     | Contains project metadata and dependencies.                          |
+| `README.md`        | Project documentation.                                               |
+| `tsconfig.json`    | TypeScript configuration tuned for modern Node.js ESM projects.      |
+| `vitest.config.ts` | Configuration for Vitest testing framework.                          |
+| `vitest.setup.ts`  | Setup file for Vitest tests.                                         |
+| `src/`             | All TypeScript source code goes here.                                |
 
 ## Native TypeScript Execution
 

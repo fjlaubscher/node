@@ -1,4 +1,4 @@
-name: Build
+name: Lint
 
 on:
   push:
@@ -7,20 +7,16 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
-        with:
-          version: 10
       - uses: actions/setup-node@v4
         with:
           node-version: '22.20.0'
           cache: pnpm
       - name: Install dependencies
-        run: |
-          corepack enable
-          pnpm install --frozen-lockfile
-      - name: Prettier Check
-        run: pnpm prettier:check
+        run: pnpm install --frozen-lockfile
+      - name: Run lint
+        run: pnpm lint

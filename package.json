@@ -5,10 +5,10 @@
   "type": "module",
   "main": "index.ts",
   "scripts": {
-    "start": "node index.ts",
-    "test": "vitest run",
-    "prettier:check": "prettier --check \"src/**/*\" \"src/*\"",
-    "prettier:format": "prettier --write \"src/**/*\" \"src/*\""
+    "lint": "prettier --check \"src/**/*\" \"src/*\" && pnpm typecheck",
+    "format": "prettier --write \"src/**/*\" \"src/*\"",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
   },
   "keywords": [],
   "author": {
